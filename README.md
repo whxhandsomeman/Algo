@@ -328,20 +328,6 @@ Rules:
 8. {role_specific_rule}
 ```
 
-##### Role-Specific Rule
-
-For undercover agents:
-
-```text
-Because the agent is undercover, preserve deception: prefer deltas that track public momentum, reduce exposure, and avoid making the undercover appear uniquely suspicious without evidence.
-```
-
-For civilian agents:
-
-```text
-Because the agent is civilian, prioritize identifying semantic outliers, consistency breaks, and vote patterns that point to the undercover.
-```
-
 ##### User Prompt Template
 
 ```text
@@ -432,79 +418,7 @@ other:
 {"message": "..."}
 ```
 
-##### Strategy Directives
 
-For undercover speech:
-
-```text
-Keep your clue semantically close to the group's emerging pattern. Avoid unique giveaway details and avoid over-acting.
-```
-
-For undercover voting:
-
-```text
-When voting, prefer targets already supported by public evidence or visible momentum. Avoid isolated guesses that lack justification.
-```
-
-For civilian speech:
-
-```text
-Play as a high-win-rate civilian. Your clue should be moderately specific: reveal one concrete property that separates nearby alternatives, but do not say the exact word. Avoid low-information clues such as "popular", "common", broad categories, or generic function descriptions. If earlier speakers already show a shared semantic cluster, stay compatible with that cluster and add one discriminative detail rather than drifting to an unrelated angle. Do not assume you know your camp, but do not hide so much that the true outlier can blend in.
-```
-
-For civilian voting:
-
-```text
-Play as a high-win-rate civilian. Vote primarily for the player whose clue is least semantically compatible with the majority pattern, especially if they stay vague while others converge or if they helped eliminate a civilian earlier. Use social momentum only as a tie-breaker between similarly suspicious targets. Avoid split-voting onto a weakly justified alternate target.
-```
-
-##### Graph Decision Hints
-
-WITU graph decision hints generate different types of recommendations depending on the role and phase.
-
-For undercover speech:
-
-```text
-Current suspicion risk list: [...]
-Influential players to align with: [...]
-Players who voted you last round: [...]
-```
-
-For undercover voting:
-
-```text
-Previous-round wagon counts: [...]
-Self-threat voters (last round): [...]
-Vote priority from public momentum: [...]
-Preferred target: P{target}
-Rule: prioritize the top target to avoid unsupported split votes.
-```
-
-For civilian speech:
-
-```text
-Suspicion ranking (high->low): [...]
-Influential players to watch: [...]
-Emerging semantic cluster: [...]
-Speech rule: stay near the cluster but add one concrete differentiator, not a generic category.
-Current clue outliers to monitor: [...]
-Notable unique clue terms: ...
-```
-
-For civilian voting:
-
-```text
-Graph suspicion ranking: [...]
-Majority clue cluster: [...]
-Semantic outlier ranking: [...]
-Recommended vote priority: [...]
-Top target candidate: P{target}
-Voting rule: prioritize the top target unless another candidate has equally strong public evidence.
-```
-
-These hints convert the private relation graph into the most important WITU decision factors: semantic compatibility, outlier ranking, voting momentum, and self-preservation for undercover roles.
-
----
 
 ### 3. Summary
 
